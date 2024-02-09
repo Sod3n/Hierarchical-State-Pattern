@@ -1,0 +1,17 @@
+{
+    "name": "HierarchicalStatePattern.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:129ffdb905e932445b709c3275f09c63",
+        "GUID:7d80794d354d21043962488e6191c15b"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,11 @@
+{
+    "name": "com.nenpotato.HierarchicalStatePattern",
+    "displayName": "HierarchicalStatePattern",
+    "version": "0.1.0",
+    "unity": "2022.3",
+    "description": "Plugin that allows make manipulations with states in unity inspector.",
+    "license": "MIT",
+    "dependencies": {
+		"com.mathijsbakker.extenject": "9.2.0"
+	}
+}

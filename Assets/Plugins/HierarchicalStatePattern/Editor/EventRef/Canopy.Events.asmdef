@@ -1,0 +1,16 @@
+{
+    "name": "Canopy.Events",
+    "rootNamespace": "",
+    "references": [
+        "GUID:f3df97e247d08454eb05c60f888fef71"
+    ],
+    "includePlatforms": [],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}
