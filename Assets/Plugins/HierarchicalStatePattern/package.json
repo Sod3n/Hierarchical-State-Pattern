@@ -6,6 +6,5 @@
     "description": "Plugin that allows make manipulations with states in unity inspector.",
     "license": "MIT",
     "dependencies": {
-		"com.mathijsbakker.extenject": "9.2.0"
 	}
 }
