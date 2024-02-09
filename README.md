@@ -1,5 +1,8 @@
 # Hierarchical State Pattern Documentation
 
+## Пример использования
+Можно найти в https://github.com/Sod3n/Desolation
+
 ## Как установить
 1. Установите Extenject > 9.2.0
 2. Откройте Package Manager
