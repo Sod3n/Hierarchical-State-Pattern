@@ -1,9 +1,10 @@
 # Hierarchical State Pattern Documentation
 
 ## Как установить
-1. Откройте Package Manager
-2. Нажмите на плюс в правом верхнем углу
-3. Выберете “Add package from git URL…”, вставьте ссылку https://github.com/Sod3n/Hierarchical-State-Pattern.git?path=/Assets/Plugins/HierarchicalStatePattern и нажмите кнопку “add"
+1. Установите Extenject > 9.2.0
+2. Откройте Package Manager
+3. Нажмите на плюс в правом верхнем углу
+4. Выберете “Add package from git URL…”, вставьте ссылку https://github.com/Sod3n/Hierarchical-State-Pattern.git?path=/Assets/Plugins/HierarchicalStatePattern и нажмите кнопку “add"
 
 ## Описание
 
