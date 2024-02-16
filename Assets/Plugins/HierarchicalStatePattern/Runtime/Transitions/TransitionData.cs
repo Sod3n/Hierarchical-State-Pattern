@@ -15,5 +15,6 @@ namespace HierarchicalStatePattern
         public AbstractState State;
         public EventRef EventReference;
         public List<TransitionCondition> Conditions = new List<TransitionCondition>();
+        public List<TransitionCondition> InversedConditions = new List<TransitionCondition>();
     }
 }
