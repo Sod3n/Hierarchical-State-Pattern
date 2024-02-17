@@ -52,7 +52,7 @@ namespace HierarchicalStatePattern
             {
                 Action action = () => 
                 { 
-                    if(data.Conditions.TrueForAll(x => x.IsSatisfied) && data.Conditions.TrueForAll(x => !x.IsSatisfied)) 
+                    if(data.Conditions.TrueForAll(x => x.IsSatisfied) && data.InversedConditions.TrueForAll(x => !x.IsSatisfied)) 
                         _stateController.ChangeState(data.State);  
                 };
 
