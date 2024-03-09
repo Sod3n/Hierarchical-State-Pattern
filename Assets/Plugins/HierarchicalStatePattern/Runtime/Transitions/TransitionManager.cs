@@ -26,7 +26,7 @@ namespace HierarchicalStatePattern
             _references.ForEach(x => count += x.GetMaxTransitionCount());
             _transitionActions.EnsureCapacity(count);
 
-            _transitions.Value.ForEach(x => x.EventReference.Initialize());
+            _transitions.Value.ForEach(x => x.EventReference.Initialize(gameObject));
         }
 
         public override void OnEnter()
