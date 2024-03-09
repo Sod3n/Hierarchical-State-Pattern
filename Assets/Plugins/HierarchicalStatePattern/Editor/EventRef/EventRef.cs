@@ -25,12 +25,13 @@ namespace Canopy.Events
         [SerializeField] private string _eventField;
 
         private EventInfo _eventInfo = null;
+        private GameObject _gameObject;
 
         public static EventRef operator +(EventRef a, Action b)
         {
             if (a._eventInfo == null)
             {
-                Debug.LogError("Event Info is not found");
+                Debug.LogError("Event Info is not found", a._gameObject);
                 return a;
             }
 
@@ -41,7 +42,7 @@ namespace Canopy.Events
         {
             if (a._eventInfo == null)
             {
-                Debug.LogError("Event Info is not found");
+                Debug.LogError("Event Info is not found", a._gameObject);
                 return a;
             }
 
@@ -50,11 +51,12 @@ namespace Canopy.Events
         }
 
 
-        public void Initialize()
+        public void Initialize(GameObject gameObject = null)
         {
+            _gameObject = gameObject;
             if (_eventAsset == null)
             {
-                Debug.LogError("Event Reference is not set");
+                Debug.LogError("Event Reference is not set", _gameObject);
                 return;
             }
 
