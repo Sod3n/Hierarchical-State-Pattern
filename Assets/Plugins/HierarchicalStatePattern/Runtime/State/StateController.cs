@@ -18,8 +18,6 @@ namespace HierarchicalStatePattern
             }
             set
             {
-                if (_state == value) return;
-
                 _state?.Exit();
                 _state = value;
                 _state?.Enter();
