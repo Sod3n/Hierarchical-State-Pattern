@@ -9,6 +9,9 @@ namespace HierarchicalStatePattern
     public abstract class TransitionCondition : MonoBehaviour
     {
         protected bool _isSatisfied;
-        public bool IsSatisfied { get; }
+        public bool IsSatisfied
+        {
+            get => _isSatisfied;
+        }
     }
 }
