@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Zenject;
 
 namespace HierarchicalStatePattern
 {
@@ -10,7 +11,8 @@ namespace HierarchicalStatePattern
     {
         private bool _entered = false;
 
-        private void Awake()
+        [Inject]
+        private void Init()
         {
             if(!_entered) gameObject.SetActive(false);
         }
