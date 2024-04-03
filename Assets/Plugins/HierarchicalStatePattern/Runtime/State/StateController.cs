@@ -6,7 +6,7 @@ using Zenject;
 
 namespace HierarchicalStatePattern
 {
-    public class StateController : MonoBehaviour
+    public class StateController : GameObjectContext
     {
         [SerializeField] private AbstractState _baseState;
         private AbstractState _state;
@@ -24,8 +24,21 @@ namespace HierarchicalStatePattern
             }
         }
 
+        protected override void RunInternal()
+        {
+            PreInstall += BindStateController;
+            base.RunInternal();
+        }
 
-        private void Start() { ChangeState(_baseState); }
+        private void BindStateController()
+        {
+            Container.Rebind<StateController>().AsSingle();
+        }
+
+        private void Start()
+        {
+            ChangeState(_baseState);
+        }
 
         public void ChangeState(AbstractState state) { CurrentState = state; }
     }

@@ -4,6 +4,7 @@ using UnityEngine;
 
 namespace HierarchicalStatePattern
 {
+    [RequireComponent(typeof(TransitionManager))]
     public class State : AbstractState
     {
 
