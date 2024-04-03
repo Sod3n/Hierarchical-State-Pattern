@@ -32,7 +32,7 @@ namespace HierarchicalStatePattern
 
         private void BindStateController()
         {
-            Container.Rebind<StateController>().AsSingle();
+            Container.BindInstance(this).AsSingle();
         }
 
         private void Start()
