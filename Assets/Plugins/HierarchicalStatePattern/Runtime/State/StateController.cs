@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
@@ -35,9 +36,14 @@ namespace HierarchicalStatePattern
             Container.BindInstance(this).AsSingle();
         }
 
-        private void Start()
+        private void OnEnable()
         {
             ChangeState(_baseState);
+        }
+
+        private void OnDisable()
+        {
+            ChangeState(null);
         }
 
         public void ChangeState(AbstractState state) { CurrentState = state; }
