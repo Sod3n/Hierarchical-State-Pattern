@@ -10,6 +10,12 @@ namespace HierarchicalStatePattern
         
         [SerializeField] private State _state;
 
+        public State State
+        {
+            get => _state;
+            set => _state = value;
+        }
+
         private TransitionManager _transitionManager;
         
         public TransitionManager TransitionManager

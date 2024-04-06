@@ -9,7 +9,7 @@ namespace HierarchicalStatePattern
         {
             base.OnInspectorGUI();
             var fromState = (FromState) target;
-            fromState.gameObject.name = "From"+(fromState.TransitionManager != null ? fromState.TransitionManager.gameObject.name : "State");
+            fromState.gameObject.name = "From"+(fromState.State != null ? fromState.State.gameObject.name : "State");
         }
     }
 }
