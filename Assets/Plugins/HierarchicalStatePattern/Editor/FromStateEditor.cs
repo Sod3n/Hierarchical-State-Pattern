@@ -2,14 +2,14 @@
 
 namespace HierarchicalStatePattern
 {
-    [CustomEditor(typeof(ToState))]
-    public class ToStateEditor : Editor
+    [CustomEditor(typeof(FromState))]
+    public class FromStateEditor : Editor
     {
         public override void OnInspectorGUI()
         {
             base.OnInspectorGUI();
-            var toState = (ToState) target;
-            toState.gameObject.name = "To"+(toState.State != null ? toState.State.name : "State");
+            var fromState = (FromState) target;
+            fromState.gameObject.name = "From"+(fromState.TransitionManager != null ? fromState.TransitionManager.gameObject.name : "State");
         }
     }
 }

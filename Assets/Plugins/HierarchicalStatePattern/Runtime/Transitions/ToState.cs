@@ -1,40 +1,40 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace HierarchicalStatePattern
 {
-    [RequireComponent(typeof(Transition))]
-    public class ToState : Transition
+    public class ToState : MonoBehaviour
     {
         [SerializeField] private AbstractState _state;
 
-        protected override void Initialize()
+        public AbstractState State
         {
-            base.Initialize();
-            
-            var from = transform.parent.GetComponent<FromState>();
-
-            if (!from)
-            {
-                Debug.LogError("From is not assign to parent object", this);
-                return;
-            }
-
-            var manager = from.TransitionManager;
-
-            _transitionData.State = _state;
-            
-            manager.Transitions.Value.Add(_transitionData);
-            
-            _transitionData.EventReference += ReDeactivateState;
-            gameObject.SetActive(false);
+            get => _state;
+            set => _state = value;
         }
-        
-        
-        private void ReDeactivateState()
+
+        [Inject]
+        protected void Initialize()
         {
-            gameObject.SetActive(true);
-            UniTask.NextFrame().ContinueWith(() => gameObject.SetActive(false));
+            if(!gameObject.activeInHierarchy) return;
+            
+            var fromStates = transform.GetComponentsInChildren<FromState>();
+
+            foreach (var from in fromStates)
+            {
+                if (!from)
+                {
+                    Debug.LogError("From is not assign to parent object", this);
+                    return;
+                }
+
+                var manager = from.TransitionManager;
+
+                from.TransitionData.State = _state;
+            
+                manager.Transitions.Value.Add(from.TransitionData);
+            }
         }
     }
 }

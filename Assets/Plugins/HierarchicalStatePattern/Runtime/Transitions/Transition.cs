@@ -22,7 +22,7 @@ namespace HierarchicalStatePattern
         [Inject]
         protected virtual void Initialize()
         {
-            _transitionData.EventReference.Initialize();
+            _transitionData.EventReference.Initialize(gameObject);
         }
     }
 }
