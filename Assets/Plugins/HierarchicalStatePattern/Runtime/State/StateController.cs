@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using Cysharp.Threading.Tasks;
 using UnityEngine;
 using Zenject;
 
@@ -21,7 +22,7 @@ namespace HierarchicalStatePattern
             {
                 _state?.Exit();
                 _state = value;
-                _state?.Enter();
+                UniTask.NextFrame().ContinueWith(() => _state?.Enter());
             }
         }
 
