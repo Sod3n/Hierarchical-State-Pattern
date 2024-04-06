@@ -14,6 +14,12 @@ namespace HierarchicalStatePattern
         [SerializeField] private List<AbstractTransition> _references = new List<AbstractTransition>();
         [SerializeField] private TransitionList _transitions = new TransitionList();
 
+        public TransitionList Transitions
+        {
+            get => _transitions;
+            set => _transitions = value;
+        }
+
 
         private TransitionList _transitionList = new TransitionList();
 

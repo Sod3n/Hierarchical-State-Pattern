@@ -12,7 +12,7 @@ namespace HierarchicalStatePattern
         //Name of element of list in inspector
         [HideInInspector] public string Name = "State";
 
-        public AbstractState State;
+        [HideInInspector] public AbstractState State;
         public EventRef EventReference;
         public List<TransitionCondition> Conditions = new List<TransitionCondition>();
         public List<TransitionCondition> InversedConditions = new List<TransitionCondition>();
