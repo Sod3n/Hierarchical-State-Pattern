@@ -17,10 +17,12 @@ namespace HierarchicalStatePattern
         [Inject]
         protected void Initialize()
         {
-            if(!gameObject.activeInHierarchy) return;
+            if(!gameObject.activeSelf) return;
             
-            var fromStates = transform.GetComponentsInChildren<FromState>();
-
+            var fromStates = transform.GetComponentsInChildren<FromState>(true);
+            
+            Debug.Log(fromStates.Length);
+            
             foreach (var from in fromStates)
             {
                 if (!from)
@@ -32,7 +34,7 @@ namespace HierarchicalStatePattern
                 var manager = from.TransitionManager;
 
                 from.TransitionData.State = _state;
-            
+                
                 manager.Transitions.Value.Add(from.TransitionData);
             }
         }

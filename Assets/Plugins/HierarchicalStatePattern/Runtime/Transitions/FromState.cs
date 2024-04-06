@@ -1,16 +1,21 @@
 ﻿using Cysharp.Threading.Tasks;
 using UnityEngine;
+using Zenject;
 
 namespace HierarchicalStatePattern
 {
     public class FromState : Transition
     {
-        [SerializeField] private TransitionManager _state;
+        [Inject] private StateController _stateController;
+        
+        [SerializeField] private State _state;
 
+        private TransitionManager _transitionManager;
+        
         public TransitionManager TransitionManager
         {
-            get => _state;
-            set => _state = value;
+            get => _transitionManager ? _transitionManager : GetTransitionManager();
+            set => _transitionManager = value;
         }
 
         public TransitionData TransitionData
@@ -30,8 +35,16 @@ namespace HierarchicalStatePattern
         
         private void ReDeactivateState()
         {
+            if(_stateController.CurrentState != _state) return;
+            
             gameObject.SetActive(true);
             UniTask.NextFrame().ContinueWith(() => gameObject.SetActive(false));
+        }
+
+        private TransitionManager GetTransitionManager()
+        {
+            _transitionManager = _state.GetComponent<TransitionManager>();
+            return _transitionManager;
         }
     }
 }
