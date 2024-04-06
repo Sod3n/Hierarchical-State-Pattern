@@ -1,11 +1,11 @@
 {
   "dependencies": {
-    "com.nenpotato.animate": {
-      "version": "https://github.com/Sod3n/AniMate.git?path=/Assets/Plugins/AniMate",
+    "com.cysharp.unitask": {
+      "version": "https://github.com/Cysharp/UniTask.git?path=src/UniTask/Assets/Plugins/UniTask",
       "depth": 0,
       "source": "git",
       "dependencies": {},
-      "hash": "5c392b7c4ee88e7eb49c3c8ec8928a5a6b9bb10c"
+      "hash": "0c8057c66852e7d720966ef076d4924ebb27e80c"
     },
     "com.unity.collab-proxy": {
       "version": "2.2.0",

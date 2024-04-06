@@ -7,7 +7,7 @@ namespace HierarchicalStatePattern
 {
     public class Transition : AbstractTransition
     {
-        [SerializeField] private TransitionData _transitionData;
+        [SerializeField] protected TransitionData _transitionData;
         public override List<TransitionData> AddTransitionDataToList(List<TransitionData> list)
         {
             list.Add(_transitionData);
@@ -20,7 +20,7 @@ namespace HierarchicalStatePattern
         }
 
         [Inject]
-        private void Initialize()
+        protected virtual void Initialize()
         {
             _transitionData.EventReference.Initialize();
         }
