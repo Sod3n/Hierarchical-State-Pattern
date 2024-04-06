@@ -33,16 +33,14 @@ namespace HierarchicalStatePattern
         protected override void Initialize()
         {
             base.Initialize();
-            
-            _transitionData.EventReference += ReDeactivateState;
+
+            _transitionData.OnTransition += ReDeactivateState;
             gameObject.SetActive(false);
         }
         
         
         private void ReDeactivateState()
         {
-            if(_stateController.CurrentState != _state) return;
-            
             gameObject.SetActive(true);
             UniTask.NextFrame().ContinueWith(() => gameObject.SetActive(false));
         }

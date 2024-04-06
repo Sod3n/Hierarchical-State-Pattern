@@ -59,7 +59,10 @@ namespace HierarchicalStatePattern
                 Action action = () => 
                 { 
                     if(data.Conditions.TrueForAll(x => x.IsSatisfied) && data.InversedConditions.TrueForAll(x => !x.IsSatisfied)) 
-                        _stateController.ChangeState(data.State);  
+                    {
+                        _stateController.ChangeState(data.State);
+                        data.OnTransition?.Invoke();
+                    }  
                 };
 
                 data.EventReference += action;

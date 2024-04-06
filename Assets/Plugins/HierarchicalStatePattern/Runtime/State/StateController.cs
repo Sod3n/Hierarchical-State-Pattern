@@ -25,7 +25,6 @@ namespace HierarchicalStatePattern
                 UniTask.NextFrame().ContinueWith(() => _state?.Enter());
             }
         }
-
         protected override void RunInternal()
         {
             PreInstall += BindStateController;
@@ -47,6 +46,9 @@ namespace HierarchicalStatePattern
             ChangeState(null);
         }
 
-        public void ChangeState(AbstractState state) { CurrentState = state; }
+        public void ChangeState(AbstractState state)
+        {
+            CurrentState = state;
+        }
     }
 }
