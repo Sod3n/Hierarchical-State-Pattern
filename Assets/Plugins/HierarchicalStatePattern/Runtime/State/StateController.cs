@@ -13,6 +13,8 @@ namespace HierarchicalStatePattern
         public AbstractState ParentState { get; set; }
         
         [SerializeField] private AbstractState _baseState;
+
+        private AbstractState _nextState;
         private AbstractState _state;
         public AbstractState CurrentState
         {
@@ -24,14 +26,15 @@ namespace HierarchicalStatePattern
             {
                 if (value != null && value?.Controller != this) 
                 {
-                    value.Controller.ChangeState(value);
                     ChangeState(value.Controller.ParentState);
+                    value.Controller.ChangeState(value);
                 }
                 else
                 {
                     _state?.Exit();
                     _state = value;
                     UniTask.NextFrame().ContinueWith(() => _state?.Enter());
+                    _nextState = _state;
                 }
             }
         }
@@ -50,7 +53,8 @@ namespace HierarchicalStatePattern
 
         private void OnEnable()
         {
-            ChangeState(_baseState);
+            if(_nextState == null)
+                ChangeState(_baseState);
         }
 
         private void OnDisable()
