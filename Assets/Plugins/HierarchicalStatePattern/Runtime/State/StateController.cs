@@ -22,7 +22,7 @@ namespace HierarchicalStatePattern
             }
             set
             {
-                if (value.Controller != this)
+                if (value != null && value?.Controller != this) 
                 {
                     value.Controller.ChangeState(value);
                     ChangeState(value.Controller.ParentState);
