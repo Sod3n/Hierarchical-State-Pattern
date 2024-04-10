@@ -10,6 +10,8 @@ namespace HierarchicalStatePattern
 {
     public class StateController : GameObjectContext
     {
+        public AbstractState ParentState { get; set; }
+        
         [SerializeField] private AbstractState _baseState;
         private AbstractState _state;
         public AbstractState CurrentState
@@ -20,13 +22,23 @@ namespace HierarchicalStatePattern
             }
             set
             {
-                _state?.Exit();
-                _state = value;
-                UniTask.NextFrame().ContinueWith(() => _state?.Enter());
+                if (value.Controller != this)
+                {
+                    value.Controller.ChangeState(value);
+                    ChangeState(value.Controller.ParentState);
+                }
+                else
+                {
+                    _state?.Exit();
+                    _state = value;
+                    UniTask.NextFrame().ContinueWith(() => _state?.Enter());
+                }
             }
         }
         protected override void RunInternal()
         {
+            ParentState = transform.parent.GetComponent<AbstractState>();
+            
             PreInstall += BindStateController;
             base.RunInternal();
         }

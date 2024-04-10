@@ -10,5 +10,6 @@ namespace HierarchicalStatePattern
         public virtual void Enter() { }
         public virtual void Exit() { }
 
+        public virtual StateController Controller { get; set; }
     }
 }

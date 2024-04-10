@@ -9,6 +9,14 @@ namespace HierarchicalStatePattern
     [RequireComponent(typeof(TransitionManager))]
     public class State : AbstractState
     {
+        [Inject] private StateController _stateController;
+
+        public override StateController Controller
+        {
+            get => _stateController;
+            set => _stateController = value;
+        }
+
         private bool _entered = false;
 
         [Inject]
