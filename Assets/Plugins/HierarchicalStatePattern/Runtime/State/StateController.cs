@@ -33,7 +33,7 @@ namespace HierarchicalStatePattern
                 {
                     _state?.Exit();
                     _state = value;
-                    UniTask.WaitForFixedUpdate().ToUniTask().ContinueWith(() => _state?.Enter());
+                    UniTask.DelayFrame(1, PlayerLoopTiming.LastFixedUpdate).ContinueWith(() => _state?.Enter());
                     _nextState = _state;
                 }
             }
