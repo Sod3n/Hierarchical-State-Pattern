@@ -42,7 +42,7 @@ namespace HierarchicalStatePattern
         private void ReDeactivateState()
         {
             gameObject.SetActive(true);
-            UniTask.NextFrame().ContinueWith(() => gameObject.SetActive(false));
+            UniTask.WaitForFixedUpdate().ToUniTask().ContinueWith(() => gameObject.SetActive(false));
         }
 
         private TransitionManager GetTransitionManager()
