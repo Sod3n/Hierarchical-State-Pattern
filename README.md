@@ -9,7 +9,7 @@
 3. Нажмите на плюс в правом верхнем углу
 4. Выберете “Add package from git URL…”, вставьте ссылку https://github.com/Sod3n/Hierarchical-State-Pattern.git?path=/Assets/Plugins/HierarchicalStatePattern и нажмите кнопку “add"
 
-## Описание
+## Описание (OUTDATED)
 
 Данная библиотека основана на паттерне состояний(State Pattern). При этом оно расширяет этот паттерн, дополняя его концепцией компонентов, которой следует Unity.
 
